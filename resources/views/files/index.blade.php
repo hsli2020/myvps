@@ -14,6 +14,7 @@
                     <table class="w-full border-collapse border border-gray-400">
                     <tr>
                     <th class="border border-gray-300 px-4 py-2">#</th>
+                    <th class="border border-gray-300 px-4 py-2">SID</th>
                     <th class="border border-gray-300 px-4 py-2">文件名</th>
                     <th class="border border-gray-300 px-4 py-2">大小</th>
                     <th class="border border-gray-300 px-4 py-2">说明</th>
@@ -23,6 +24,7 @@
                     @foreach($files as $file)
                         <tr>
                             <td class="border border-gray-300 px-4 py-2">{{ $loop->iteration }}</td>
+                            <td class="border border-gray-300 px-4 py-2">{{ $file->sid }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $file->original_name }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ number_format($file->size / 1024, 2) }} KB</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $file->note }}</td>

@@ -39,6 +39,7 @@ class FileController extends Controller
         $path = $file->storeAs('uploads', $filename, 'public');
 
         $fileRecord = File::create([
+            'sid' => substr(time(), 4, 6),
             'original_name' => $file->getClientOriginalName(),
             'stored_name' => $filename,
             'note' => $request->input('note'),
@@ -86,9 +87,9 @@ class FileController extends Controller
         return redirect()->route('files.index')->with('success', '删除成功');
     }
 
-    public function download($id)
+    public function download($sid)
     {
-        $file = File::findOrFail($id);
+        $file = File::where('sid', $sid)->firstOrFail();
         return Storage::disk('public')->download($file->path, $file->original_name);
     }
 }

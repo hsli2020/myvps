@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class File extends Model
 {
     protected $fillable = [
+        'sid',
         'original_name',
         'stored_name',
         'note',

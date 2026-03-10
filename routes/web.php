@@ -23,6 +23,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/upload', [FileController::class, 'create'])->name('files.upload');
 });
 
-Route::get('/download/{id}', [FileController::class, 'download'])->name('files.download');
+Route::get('/download/{sid}', [FileController::class, 'download'])->name('files.download');
 
 require __DIR__.'/auth.php';
