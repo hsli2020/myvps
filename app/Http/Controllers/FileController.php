@@ -39,7 +39,7 @@ class FileController extends Controller
         $path = $file->storeAs('uploads', $filename, 'public');
 
         $fileRecord = File::create([
-            'sid' => substr(time(), 4, 6),
+            'sid' => substr(time(), 4, 6), // rand(100000, 999999)
             'original_name' => $file->getClientOriginalName(),
             'stored_name' => $filename,
             'note' => $request->input('note'),
