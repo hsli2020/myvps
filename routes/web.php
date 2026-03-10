@@ -20,7 +20,9 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('files', FileController::class);
-    Route::get('/download/{id}', [FileController::class, 'download'])->name('files.download');
+    Route::get('/upload', [FileController::class, 'create'])->name('files.upload');
 });
+
+Route::get('/download/{id}', [FileController::class, 'download'])->name('files.download');
 
 require __DIR__.'/auth.php';

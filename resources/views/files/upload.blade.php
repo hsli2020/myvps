@@ -1,3 +1,4 @@
+<x-app-layout>
 
 <form action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -6,3 +7,4 @@
     <button type="submit">上传</button>
 </form>
 
+</x-app-layout>
