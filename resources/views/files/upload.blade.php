@@ -10,7 +10,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-
+{{--
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+--}}
                 <form class=""
                     action="{{ route('files.store') }}" method="POST" enctype="multipart/form-data"
                 >
@@ -19,7 +29,12 @@
                         <label class="text-base text-slate-900 font-medium mb-3 block">Select file</label>
                         <input type="file" name="file"
                             class="w-full text-slate-500 font-medium text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-slate-500 rounded" />
+
                         <p class="text-xs text-slate-500 mt-2">PNG, JPG, DOCX, ZIP are Allowed.</p>
+
+                        @error('file')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <div class="max-w-md mx-auto mt-4">
@@ -27,7 +42,6 @@
                         <textarea name="note" rows="10"
                             class="w-full text-slate-500 font-medium text-sm
                             bg-white border"></textarea>
-
                     </div>
 
                     <div class="max-w-md mx-auto mt-4">
