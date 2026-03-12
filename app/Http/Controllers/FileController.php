@@ -31,7 +31,7 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'file' => 'required|file|max:52428800|mimes:jpg,png,pdf,doc,docx,zip',
+            'file' => 'required|file|max:204800|mimes:jpg,png,pdf,doc,docx,zip',
         ]);
 
         $file = $request->file('file');

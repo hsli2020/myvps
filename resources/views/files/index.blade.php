@@ -28,7 +28,7 @@
                             <td class="border border-gray-300 px-4 py-2">{{ $file->original_name }}</td>
                             <td class="border border-gray-300 px-4 py-2">{{ number_format($file->size / 1024, 2) }} KB</td>
                             <td class="border border-gray-300 px-4 py-2">{{ $file->note }}</td>
-                            <td class="border border-gray-300 px-4 py-2"><a href="{{ route('files.download', $file->id) }}">下载</a></td>
+                            <td class="border border-gray-300 px-4 py-2"><a href="{{ route('files.download', $file->sid) }}">下载</a></td>
 {{--
                             <form action="{{ route('files.destroy', $file->id) }}" method="POST" style="display:inline;">
                                 @csrf
