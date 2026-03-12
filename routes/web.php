@@ -8,10 +8,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/phpinfo', function () {
-    phpinfo();
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -23,6 +19,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/phpinfo', function () { phpinfo(); });
+
     Route::resource('files', FileController::class);
     Route::get('/upload', [FileController::class, 'create'])->name('files.upload');
 });
